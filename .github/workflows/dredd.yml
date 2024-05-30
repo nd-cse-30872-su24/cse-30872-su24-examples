@@ -1,0 +1,17 @@
+name: Dredd
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest    
+    container: pbui/cse-30872-su24-assignments
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Linting
+      run:  find ${GITHUB_HEAD_REF} -type f -iname '*.*' | xargs .scripts/lint.sh 
