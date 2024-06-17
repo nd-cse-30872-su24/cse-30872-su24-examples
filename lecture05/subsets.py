@@ -10,7 +10,7 @@ NUMBERS = list(range(0, 10))
 
 # Functions
 
-def subsets(s: list[Any], c: list[Any], k: int) -> Iterator[int]:
+def subsets(s: list[Any], c: list[Any], k: int=0) -> Iterator[list[Any]]:
     '''
     s:  current subset
     c:  all candidate elements
@@ -19,7 +19,7 @@ def subsets(s: list[Any], c: list[Any], k: int) -> Iterator[int]:
 
     # Base case: we have exhausted all candidates
     if k == len(c):
-        yield 1 if sum(s) % 3 == 0 else 0
+        yield s
 
     # Recursive cases
     else:
@@ -40,7 +40,7 @@ def main() -> None:
 
     print(count)
 
-    count = sum(subsets([], NUMBERS, 0))
+    count = sum(1 for subset in subsets([], NUMBERS) if sum(subset) % 3 == 0)
     print(count)
 
 if __name__ == '__main__':
