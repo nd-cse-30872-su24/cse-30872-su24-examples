@@ -27,7 +27,7 @@ def read_tree(values: list[int], index: int=0) -> Optional[Node]:
         read_tree(values, 2*index + 2)
     )
 
-def walk_tree(root: Node) -> list[int]:
+def walk_tree(root: Optional[Node]) -> list[int]:
     # BFS Traversal with Queue
     nodes  = collections.deque([root])
     values = []
@@ -45,7 +45,7 @@ def walk_tree(root: Node) -> list[int]:
 
     return values
 
-def dump_tree(root: Node) -> None:
+def dump_tree(root: Optional[Node]) -> None:
     print(','.join(map(str, walk_tree(root))))
 
 def invert_tree(root: Optional[Node]) -> Optional[Node]:

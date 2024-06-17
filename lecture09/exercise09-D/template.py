@@ -21,11 +21,11 @@ def read_tree(values: list[int], index: int=0) -> Optional[Node]:
     # TODO: Use divide and conquer to parse tree
     return None
 
-def walk_tree(root: Node) -> list[int]:
+def walk_tree(root: Optional[Node]) -> list[int]:
     # TODO: Use BFS Traversal with Queue to create list of values
     return []
 
-def dump_tree(root: Node) -> None:
+def dump_tree(root: Optional[Node]) -> None:
     print(','.join(map(str, walk_tree(root))))
 
 def invert_tree(root: Optional[Node]) -> Optional[Node]:
