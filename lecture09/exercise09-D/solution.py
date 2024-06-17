@@ -2,7 +2,7 @@
 
 # Exercise 09-D: Invert Binary Tree
 
-import collections
+from collections import deque
 from dataclasses import dataclass
 from typing      import Optional
 import sys
@@ -29,7 +29,7 @@ def read_tree(values: list[int], index: int=0) -> Optional[Node]:
 
 def walk_tree(root: Optional[Node]) -> list[int]:
     # BFS Traversal with Queue
-    nodes  = collections.deque([root])
+    nodes  = deque([root])
     values = []
 
     while nodes:

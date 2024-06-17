@@ -2,7 +2,7 @@
 
 # Exercise 09-D: Invert Binary Tree
 
-import collections
+from collections import deque
 from dataclasses import dataclass
 from typing      import Optional
 import sys
