@@ -1,5 +1,6 @@
 // Exercise 09-B: Binary Tree Min
 
+#include <climits>
 #include <iostream>
 #include <memory>
 
@@ -18,17 +19,17 @@ struct Node {
 
 template <typename T>
 T minimum_tree(Node<T> *root) {
-    T minimum = root->value;
-
-    if (root->left) {
-    	minimum = min(minimum, minimum_tree(root->left));
+    // Base case: Invalid Node
+    if (!root) {
+    	return INT_MAX;
     }
 
-    if (root->right) {
-    	minimum = min(minimum, minimum_tree(root->right));
-    }
+    // Divide and Conquer: Recursively solve left and right sub-trees
+    T left_minimum  = minimum_tree(root->left);
+    T right_minimum = minimum_tree(root->right);
 
-    return minimum;
+    // Combine: Take minimum of current node and left and right minimums
+    return min(root->value, min(left_minimum, right_minimum));
 }
 
 // Main execution

@@ -2,22 +2,31 @@
 
 # Exercise 09-B: Binary Tree Min
 
-import collections
+from dataclasses import dataclass
+from typing import Optional
 import sys
 
 # Structures
 
-Node = collections.namedtuple('Node', 'value left right')
+@dataclass
+class Node:
+    value: int
+    left:  Optional['Node']
+    right: Optional['Node']
 
 # Functions
 
-def minimum_tree(root: Node) -> int:
+def minimum_tree(root: Optional[Node]) -> int:
     ''' Use divide and conquer to compute the minimum of binary tree '''
-    # Divide and conquer: recursively solve left and right sub-trees
-    left_min  = minimum_tree(root.left)  if root.left  else root.value
-    right_min = minimum_tree(root.right) if root.right else root.value
+    # Base case: Invalid Node
+    if not root:
+        return sys.maxsize
 
-    # Combine: take minimum of current node and left and right minimums
+    # Divide and Conquer: Recursively solve left and right sub-trees
+    left_min  = minimum_tree(root.left)
+    right_min = minimum_tree(root.right)
+
+    # Combine: Take minimum of current node and left and right minimums
     return min(root.value, left_min, right_min)
 
 # Main Execution

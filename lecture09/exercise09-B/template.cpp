@@ -1,5 +1,6 @@
 // Exercise 09-B: Binary Tree Min
 
+#include <climits>
 #include <iostream>
 #include <memory>
 
@@ -18,7 +19,12 @@ struct Node {
 
 template <typename T>
 T minimum_tree(Node<T> *root) {
-    // TODO: Use divide and conquer to return the minimum value in the tree
+    // Base case: Invalid Node
+
+    // Divide and Conquer: Recursively solve left and right sub-trees
+
+    // Combine: Take minimum of current node and left and right minimums
+    return 0;
 }
 
 // Main execution
