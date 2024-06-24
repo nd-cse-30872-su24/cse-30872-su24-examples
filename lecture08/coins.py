@@ -20,8 +20,7 @@ def compute_table(n: int, coins: tuple[int]=COINS) -> list[int]:
     #
     #   table[i] = min(table[i - coin] + 1 for coin in coins if (i - coin) >= 0)
     for i in range(1, n + 1):
-        if not table[i]:
-            table[i] = min(table[i - coin] + 1 for coin in coins if (i - coin) >= 0)
+        table[i] = min(table[i - coin] + 1 for coin in coins if (i - coin) >= 0)
 
     return table
 
