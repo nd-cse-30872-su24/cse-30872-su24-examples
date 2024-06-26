@@ -29,10 +29,7 @@ def hunt_squirrels(grid: Grid, n: int) -> Grid:
     # TODO: 1. Initialize table
     pass
 
-    # TODO: 2. Table[row][col] = Grid[row][col] + max(from_left, from_above)
-    #
-    #   S(r, c) = Max(S(r, c - 1), S(r - 1, c)) + G(r, c)
-    #
+    # TODO: 2. Build table
     pass
 
     # TODO: 3. Use table result
